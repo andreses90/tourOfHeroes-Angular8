@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-heroes',
@@ -19,6 +20,13 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
 onSelect(hero: Hero): void {
   this.selectedHero = hero;
+}
+
+test(num : number): void {
+  console.log("button opcion",num);
+  this.heroes= this.heroes.filter(element=>{
+    return element.id===17  
+  });
 }
 
   constructor(private heroService: HeroService) { }
